@@ -6,7 +6,8 @@
 export const MONAD_CONFIG = {
   chainId: 10143,
   name: "Monad Testnet",
-  rpcUrl: "https://testnet-rpc.monad.xyz",
+  // rpcUrl: "https://testnet-rpc.monad.xyz",
+  rpcUrl: "https://rpc.ankr.com/monad_testnet",
   currency: {
     name: "MON",
     symbol: "MON",
@@ -20,16 +21,16 @@ export const MONAD_CONFIG = {
 
 // Contract Addresses (will be set after deployment)
 export const CONTRACT_ADDRESSES = {
-  AGENT: process.env.VITE_AGENT_CONTRACT_ADDRESS || "",
-  SERVICE: process.env.VITE_SERVICE_CONTRACT_ADDRESS || "",
-  MARKET: process.env.VITE_MARKET_CONTRACT_ADDRESS || "",
-  X402_PAYMENT: process.env.VITE_X402_PAYMENT_CONTRACT || "",
+  AGENT: import.meta.env.VITE_AGENT_CONTRACT_ADDRESS || "",
+  SERVICE: import.meta.env.VITE_SERVICE_CONTRACT_ADDRESS || "",
+  MARKET: import.meta.env.VITE_MARKET_CONTRACT_ADDRESS || "",
+  X402_PAYMENT: import.meta.env.VITE_X402_PAYMENT_CONTRACT || "",
 } as const;
 
 // API Configuration
 export const API_CONFIG = {
-  baseUrl: process.env.VITE_API_BASE_URL || "http://localhost:8000",
-  apiVersion: "v1",
+  baseUrl: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000",
+  apiVersion: "/api/v1", // Include /api/ prefix to match backend routes
 } as const;
 
 // Service Types

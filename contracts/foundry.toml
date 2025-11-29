@@ -22,7 +22,13 @@ via_ir = true
 
 # RPC Endpoints
 [rpc_endpoints]
+# Official Monad Testnet RPC (recommended)
 monad_testnet = "https://testnet-rpc.monad.xyz"
+# OnFinality RPC (requires API key for higher rate limit)
+# To use OnFinality with API key, uncomment and add your API key:
+# monad_testnet_onfinality = "https://monad-testnet.api.onfinality.io/public?apikey=YOUR_API_KEY"
+# Alternative RPC endpoints (if primary fails, try these):
+# monad_testnet_alt1 = "https://rpc.testnet.monad.xyz"  # Alternative endpoint 1
 local = "http://127.0.0.1:8545"
 
 # Etherscan API Keys

@@ -51,7 +51,11 @@ class Settings(BaseSettings):
     @property
     def cors_origins_list(self) -> list[str]:
         """Parse CORS origins from comma-separated string"""
-        return [origin.strip() for origin in self.BACKEND_CORS_ORIGINS.split(",")]
+        origins = [origin.strip() for origin in self.BACKEND_CORS_ORIGINS.split(",")]
+        # Handle empty string or "*" for development
+        if not origins or origins == [""]:
+            return ["*"]  # Default to allow all in development
+        return origins
     
     # Security
     SECRET_KEY: str = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")

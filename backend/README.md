@@ -115,7 +115,18 @@ uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 
 ## 云部署
 
-### Railway 部署（推荐，最简单）
+### 🆓 免费部署选项（无需信用卡）
+
+**Railway 现在需要信用卡**，如果没有免费额度，推荐使用：
+
+- **Render** - 完全免费，无需信用卡 ⭐ **推荐**
+- **Fly.io** - 月账单 < $5 免费
+- **本地 + ngrok** - 适合开发测试
+
+**详细步骤**: [FREE_DEPLOYMENT_OPTIONS.md](./FREE_DEPLOYMENT_OPTIONS.md)
+**Render 详细步骤**: [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md)
+
+### Railway 部署（需要信用卡或试用额度）
 
 **详细步骤请查看**: [RAILWAY_DEPLOYMENT_STEPS.md](./RAILWAY_DEPLOYMENT_STEPS.md)
 

@@ -39,7 +39,27 @@ uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 
 ---
 
-## Railway 部署 - 7 步完成
+## 免费部署选项
+
+**Railway 现在需要信用卡**，如果没有免费额度，推荐使用 **Render**（完全免费）！
+
+详细步骤见: [FREE_DEPLOYMENT_OPTIONS.md](./FREE_DEPLOYMENT_OPTIONS.md)
+
+## Render 部署 - 7 步完成（完全免费，推荐）⭐
+
+**详细步骤**: [RENDER_QUICK_START.md](./RENDER_QUICK_START.md)
+
+### 快速步骤：
+
+1. **注册 Render**: https://render.com（GitHub 登录）
+2. **创建 PostgreSQL**: "New +" → "PostgreSQL" → Free
+3. **创建 Web Service**: "New +" → "Web Service" → 连接 GitHub
+4. **配置环境变量**: 添加数据库 URL 和合约地址
+5. **等待部署**: 5-10 分钟自动完成
+6. **初始化数据库**: Shell → `python init_db.py`
+7. **获取 URL**: 复制服务 URL，更新前端配置
+
+## Railway 部署 - 7 步完成（需要信用卡或试用额度）
 
 ### 步骤 1: 准备代码
 

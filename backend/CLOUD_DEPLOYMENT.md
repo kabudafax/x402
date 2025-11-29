@@ -4,12 +4,29 @@
 
 ## 推荐平台
 
-### 1. Railway（最简单，推荐）
+### ⚠️ Railway 更新
+
+Railway 现在需要信用卡或只有 $5 试用额度。如果没有免费额度，推荐使用 **Render**（完全免费，无需信用卡）。
+
+### 1. Render（推荐，完全免费）⭐
+
+**优点**:
+- ✅ 完全免费（无需信用卡）
+- ✅ 自动部署
+- ✅ 提供 PostgreSQL 数据库
+- ✅ 配置简单
+
+**限制**:
+- 免费服务在 15 分钟无活动后会休眠
+- 首次请求可能需要几秒唤醒
+
+**详细步骤见**: [FREE_DEPLOYMENT_OPTIONS.md](./FREE_DEPLOYMENT_OPTIONS.md)
+
+### 2. Railway（需要信用卡或试用额度）
 
 **优点**:
 - 自动检测 Python 项目
 - 自动配置 PostgreSQL
-- 免费额度充足
 - 部署简单
 
 **步骤**:
@@ -66,36 +83,7 @@
      python init_db.py
      ```
 
-### 2. Render
-
-**步骤**:
-
-1. **注册 Render**: https://render.com
-
-2. **创建 Web Service**
-   - 点击 "New" → "Web Service"
-   - 连接 GitHub 仓库
-   - 选择 `backend` 目录
-
-3. **配置服务**
-   - **Name**: x402-backend
-   - **Environment**: Python 3
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn src.main:app --host 0.0.0.0 --port $PORT`
-
-4. **添加 PostgreSQL**
-   - 点击 "New" → "PostgreSQL"
-   - 创建数据库
-   - 复制连接 URL
-
-5. **配置环境变量**
-   - 在服务设置中添加环境变量（参考 `render.yaml`）
-
-6. **部署**
-   - Render 会自动部署
-   - 或使用 `render.yaml` 配置文件
-
-### 3. Fly.io
+### 3. Fly.io（月账单 < $5 免费）
 
 **步骤**:
 
@@ -249,5 +237,10 @@ VITE_API_BASE_URL=https://your-backend-url.com
 
 ---
 
-**推荐**: Railway 是最简单的选择，自动处理大部分配置。
+**推荐**: 
+- **Render** - 完全免费，无需信用卡（推荐）
+- **Fly.io** - 月账单 < $5 免费
+- **Railway** - 需要信用卡或试用额度
+
+**详细免费部署指南**: [FREE_DEPLOYMENT_OPTIONS.md](./FREE_DEPLOYMENT_OPTIONS.md)
 
