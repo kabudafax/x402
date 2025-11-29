@@ -21,7 +21,7 @@ class Payment(Base):
     payment_type = Column(String, nullable=False)  # service_call, subscription
     status = Column(String, default="pending")  # pending, confirmed, failed
     block_number = Column(Numeric(20, 0))
-    metadata = Column(JSON)  # Additional payment data
+    payment_metadata = Column(JSON)  # Additional payment data (renamed from metadata to avoid SQLAlchemy conflict)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # Relationships

@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: x402-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: X402_PAYMENT_CONTRACT
+        sync: false
+      - key: MARKET_CONTRACT_ADDRESS
+        sync: false
+      - key: SERVICE_CONTRACT_ADDRESS
+        sync: false
+      - key: MONAD_RPC_URL
+        value: https://testnet-rpc.monad.xyz
+      - key: MONAD_CHAIN_ID
+        value: 10143
+      - key: MONAD_EXPLORER_URL
+        value: https://testnet.monadexplorer.com
+      - key: API_V1_STR
+        value: /api/v1
+      - key: PROJECT_NAME
+        value: x402 AI Agent Trading Platform
+      - key: VERSION
+        value: 0.1.0
+      - key: BACKEND_CORS_ORIGINS
+        value: http://localhost:3000,http://localhost:5173
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+

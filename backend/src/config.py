@@ -43,10 +43,15 @@ class Settings(BaseSettings):
     VERSION: str = "0.1.0"
     
     # CORS
-    BACKEND_CORS_ORIGINS: list[str] = [
-        "http://localhost:3000",
-        "http://localhost:5173",  # Vite default port
-    ]
+    BACKEND_CORS_ORIGINS: str = os.getenv(
+        "BACKEND_CORS_ORIGINS",
+        "http://localhost:3000,http://localhost:5173"
+    )
+    
+    @property
+    def cors_origins_list(self) -> list[str]:
+        """Parse CORS origins from comma-separated string"""
+        return [origin.strip() for origin in self.BACKEND_CORS_ORIGINS.split(",")]
     
     # Security
     SECRET_KEY: str = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")

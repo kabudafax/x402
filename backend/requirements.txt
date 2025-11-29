@@ -1,13 +1,15 @@
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-pydantic==2.5.0
-pydantic-settings==2.1.0
-sqlalchemy==2.0.23
-alembic==1.12.1
-psycopg2-binary==2.9.9
-redis==5.0.1
-celery==5.3.4
-web3==6.11.3
-python-dotenv==1.0.0
-httpx==0.25.2
+# Updated versions for Python 3.14 compatibility
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+sqlalchemy>=2.0.36
+alembic>=1.14.0
+# Use psycopg3 for Python 3.14 compatibility
+psycopg[binary]>=3.1.0
+redis>=5.2.0
+celery>=5.4.0
+web3>=6.20.0
+python-dotenv>=1.0.1
+httpx>=0.28.0
 
