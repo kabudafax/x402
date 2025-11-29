@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useWeb3 } from '../hooks/useWeb3'
-import { API_CONFIG, MONAD_CONFIG } from '../config/constants'
+import { MONAD_CONFIG } from '../config/constants'
 
 interface Transaction {
   id: string

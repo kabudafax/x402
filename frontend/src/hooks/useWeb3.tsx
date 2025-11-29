@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
-import { createPublicClient, http, createWalletClient, custom, formatEther } from 'viem'
-import { monadTestnet } from 'viem/chains'
+import { createPublicClient, http, createWalletClient, custom } from 'viem'
 import { MONAD_CONFIG } from '../config/constants'
 
 interface Web3ContextType {
@@ -25,9 +24,13 @@ export function Web3Provider({ children }: { children: ReactNode }) {
       chain: {
         id: MONAD_CONFIG.chainId,
         name: MONAD_CONFIG.name,
+        network: 'monad-testnet',
         nativeCurrency: MONAD_CONFIG.currency,
         rpcUrls: {
           default: {
+            http: [MONAD_CONFIG.rpcUrl],
+          },
+          public: {
             http: [MONAD_CONFIG.rpcUrl],
           },
         },
@@ -50,9 +53,13 @@ export function Web3Provider({ children }: { children: ReactNode }) {
           chain: {
             id: MONAD_CONFIG.chainId,
             name: MONAD_CONFIG.name,
+            network: 'monad-testnet',
             nativeCurrency: MONAD_CONFIG.currency,
             rpcUrls: {
               default: {
+                http: [MONAD_CONFIG.rpcUrl],
+              },
+              public: {
                 http: [MONAD_CONFIG.rpcUrl],
               },
             },
