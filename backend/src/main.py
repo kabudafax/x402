@@ -7,6 +7,8 @@ from contextlib import asynccontextmanager
 
 from src.config import settings
 from src.routes import users, agents, services, market, payments
+from src.database import Base, engine
+from src.models import User, Agent, Service, Transaction, Payment
 
 
 @asynccontextmanager
@@ -14,7 +16,20 @@ async def lifespan(app: FastAPI):
     """Lifespan events for startup and shutdown"""
     # Startup
     print("Starting x402 AI Agent Trading Platform API...")
+    
+    # Initialize database tables automatically
+    try:
+        print("Initializing database tables...")
+        # This will create tables only if they don't exist
+        Base.metadata.create_all(bind=engine)
+        print("✅ Database tables initialized successfully!")
+        print("   Tables: users, agents, services, transactions, payments")
+    except Exception as e:
+        print(f"⚠️  Warning: Could not initialize database tables: {e}")
+        print("   You may need to run 'python init_db.py' manually")
+    
     yield
+    
     # Shutdown
     print("Shutting down API...")
 

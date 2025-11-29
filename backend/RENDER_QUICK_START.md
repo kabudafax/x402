@@ -99,28 +99,32 @@
 
 ---
 
-### 步骤 5: 初始化数据库
+### 步骤 5: 验证数据库初始化 ✅
 
-1. 在服务详情页，点击 **"Shell"** 标签页
+**好消息！** 后端现在会在启动时**自动初始化数据库表**，无需手动操作！
+
+1. **查看部署日志**
+   - 在服务详情页 → **"Logs"** 标签页
+   - 查找以下消息：
+     ```
+     ✅ Database tables initialized successfully!
+        Tables: users, agents, services, transactions, payments
+     ```
+
+2. **如果自动初始化失败**
+   - 如果看到 `relation "users" does not exist` 错误
+   - 需要手动初始化（见下方）
+
+### 手动初始化（仅在自动初始化失败时）
+
+1. 点击服务 → **"Shell"** 标签页
 2. 点击 **"Open Shell"** 按钮
-3. 在打开的 Shell 中运行：
+3. 运行：
    ```bash
    python init_db.py
    ```
-4. 应该看到输出：
-   ```
-   Initializing database...
-   Database URL: ...
-   Creating tables...
-   ✅ Database initialized successfully!
-   
-   Tables created:
-     - users
-     - agents
-     - services
-     - transactions
-     - payments
-   ```
+
+**详细说明**: 查看 [AUTO_DB_INIT.md](./AUTO_DB_INIT.md)
 
 ---
 

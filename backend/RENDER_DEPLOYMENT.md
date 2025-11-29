@@ -89,19 +89,33 @@ BACKEND_CORS_ORIGINS=https://your-frontend-domain.com,http://localhost:5173
 3. 查看 **"Events"** 标签页查看部署进度
 4. 等待 5-10 分钟完成部署
 
-### 步骤 6: 初始化数据库
+### 步骤 6: 验证数据库初始化 ✅
+
+**好消息！** 后端现在会在启动时**自动初始化数据库表**！
 
 部署完成后：
 
+1. **查看部署日志**
+   - 在服务 → **"Logs"** 标签页
+   - 查找：
+     ```
+     ✅ Database tables initialized successfully!
+     ```
+
+2. **如果自动初始化失败**
+   - 如果看到 `relation "users" does not exist` 错误
+   - 需要手动初始化（见下方）
+
+### 手动初始化（仅在自动初始化失败时）
+
 1. 点击服务 → **"Shell"** 标签页
-2. 在 Shell 中运行：
+2. 点击 **"Open Shell"**
+3. 运行：
    ```bash
    python init_db.py
    ```
-3. 应该看到：
-   ```
-   ✅ Database initialized successfully!
-   ```
+
+**详细说明**: 查看 [AUTO_DB_INIT.md](./AUTO_DB_INIT.md) 或 [DATABASE_INIT_FIX.md](./DATABASE_INIT_FIX.md)
 
 ### 步骤 7: 获取部署 URL
 
@@ -230,4 +244,5 @@ Render 会自动检测并开始新的部署。
 **完成！** 你的后端现在已免费部署到 Render！
 
 **下一步**: 更新前端配置，连接部署的后端 API。
+
 
